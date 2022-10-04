@@ -44,16 +44,19 @@ public class Station implements Serializable {
     @NotBlank(message = "recordid is mandatory")
     private String recordid;
 
+    @NotBlank(message = "adresse is mandatory")
+    private String adresse;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Station station = (Station) o;
-        return Double.compare(station.lattitude, lattitude) == 0 && Double.compare(station.longitude, longitude) == 0 && bike_stands == station.bike_stands && available_bikes == station.available_bikes && available_bike_stands == station.available_bike_stands && Objects.equals(id, station.id) && Objects.equals(name, station.name) && Objects.equals(status, station.status) && Objects.equals(recordid, station.recordid);
+        return Double.compare(station.lattitude, lattitude) == 0 && Double.compare(station.longitude, longitude) == 0 && bike_stands == station.bike_stands && available_bikes == station.available_bikes && available_bike_stands == station.available_bike_stands && Objects.equals(id, station.id) && Objects.equals(name, station.name) && Objects.equals(status, station.status) && Objects.equals(recordid, station.recordid) && Objects.equals(adresse, station.adresse);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, lattitude, longitude, status, bike_stands, available_bikes, available_bike_stands, recordid);
+        return Objects.hash(id, name, lattitude, longitude, status, bike_stands, available_bikes, available_bike_stands, recordid, adresse);
     }
 }
