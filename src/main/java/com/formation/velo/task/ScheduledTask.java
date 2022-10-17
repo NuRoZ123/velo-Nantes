@@ -17,8 +17,9 @@ public class ScheduledTask {
         this.pumpService = pumpService;
     }
 
-    @Scheduled(fixedRate = 60000)
+    @Scheduled(fixedRate = 300000)
     public void updateStation() {
+        log.info("updating...");
         try {
             stationService.getRecord();
             log.info("✅ station update");

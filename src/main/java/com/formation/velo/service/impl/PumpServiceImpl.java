@@ -84,6 +84,7 @@ public class PumpServiceImpl implements PumpService {
                             .lattitude(record.getField().getPosition()[0])
                             .prix(record.getField().getPrix())
                             .dateMaj(record.getField().getDateMaj())
+                            .adresse(record.getField().getAdresse())
                             .ville(record.getField().getVille())
                             .build();
 

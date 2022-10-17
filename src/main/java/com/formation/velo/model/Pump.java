@@ -24,7 +24,7 @@ public class Pump implements Serializable {
     private double lattitude;
     private double longitude;
     private double prix;
-    private DateTime dateMaj;
+    private Date dateMaj;
     private String ville;
     private String adresse;
     @NotBlank(message = "recordId is mandatory")

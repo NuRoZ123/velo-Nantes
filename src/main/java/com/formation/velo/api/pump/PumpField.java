@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.GeneratedValue;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -16,8 +17,9 @@ public class PumpField {
     @SerializedName("prix_valeur")
     private double prix;
     @SerializedName("prix_maj")
-    private DateTime dateMaj;
+    private Date dateMaj;
     private String ville;
+    @SerializedName("adresse")
     private String adresse;
     @SerializedName("geom")
     private double[] position;
