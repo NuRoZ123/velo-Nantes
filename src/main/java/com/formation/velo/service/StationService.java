@@ -1,6 +1,5 @@
 package com.formation.velo.service;
 
-import com.formation.velo.api.OpenDataVeloNantes;
 import com.formation.velo.model.Station;
 import java.util.List;
 import java.util.Optional;

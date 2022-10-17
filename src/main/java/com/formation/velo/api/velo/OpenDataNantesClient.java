@@ -1,4 +1,4 @@
-package com.formation.velo.api;
+package com.formation.velo.api.velo;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
