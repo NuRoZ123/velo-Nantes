@@ -19,9 +19,18 @@ public class ScheduledTask {
 
     @Scheduled(fixedRate = 60000)
     public void updateStation() {
-        stationService.getRecord();
-        log.info("✅ station update");
-        pumpService.getRecord();
-        log.info("✅ pump update");
+        try {
+            stationService.getRecord();
+            log.info("✅ station update");
+        } catch (Exception e) {
+            log.info("❌ station not update");
+        }
+
+        try {
+            pumpService.getRecord();
+            log.info("✅ pump update");
+        } catch (Exception e) {
+            log.info("❌ pump not update");
+        }
     }
 }
