@@ -30,6 +30,7 @@ public class ScheduledTask {
             pumpService.getRecord();
             log.info("✅ pump update");
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             log.info("❌ pump not update");
         }
     }

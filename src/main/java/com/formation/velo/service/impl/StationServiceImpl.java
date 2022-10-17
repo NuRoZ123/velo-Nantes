@@ -89,7 +89,7 @@ public class StationServiceImpl implements StationService {
                 }
             });
         } catch(IOException e) {
-            log.info("❌ stations not load!");
+            throw new RuntimeException(e);
         }
     }
 

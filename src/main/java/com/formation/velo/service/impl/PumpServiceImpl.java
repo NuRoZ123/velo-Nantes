@@ -5,6 +5,8 @@ import com.formation.velo.api.pump.OpenDataPumpNantes;
 import com.formation.velo.model.Pump;
 import com.formation.velo.repository.PumpRepository;
 import com.formation.velo.service.PumpService;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import lombok.extern.java.Log;
 import org.springframework.stereotype.Service;
 import retrofit2.Call;
@@ -54,7 +56,10 @@ public class PumpServiceImpl implements PumpService {
     @Override
     public void getRecord() {
         String urlBase = "https://data.economie.gouv.fr/";
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(urlBase).addConverterFactory(GsonConverterFactory.create()).build();
+        Gson gson = new GsonBuilder()
+                .setLenient()
+                .create();
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(urlBase).addConverterFactory(GsonConverterFactory.create(gson)).build();
 
         OpenDataNantesPumpClient client = retrofit.create(OpenDataNantesPumpClient.class);
         Call<OpenDataPumpNantes> openDataPumpNantesCall = client.getRecords();
