@@ -23,4 +23,6 @@ public class PumpField {
     private String adresse;
     @SerializedName("geom")
     private double[] position;
+    @SerializedName("prix_nom")
+    private String carburant;
 }

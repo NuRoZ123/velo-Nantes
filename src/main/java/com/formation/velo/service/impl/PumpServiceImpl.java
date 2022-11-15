@@ -74,6 +74,7 @@ public class PumpServiceImpl implements PumpService {
                     pump.get().setLattitude(record.getField().getPosition()[0]);
                     pump.get().setDateMaj(record.getField().getDateMaj());
                     pump.get().setPrix(record.getField().getPrix());
+                    pump.get().setCarburant(record.getField().getCarburant());
 
                     save(pump.get());
                 } else {
@@ -86,6 +87,7 @@ public class PumpServiceImpl implements PumpService {
                             .dateMaj(record.getField().getDateMaj())
                             .adresse(record.getField().getAdresse())
                             .ville(record.getField().getVille())
+                            .carburant(record.getField().getCarburant())
                             .build();
 
                     save(newPump);

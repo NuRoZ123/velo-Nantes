@@ -29,4 +29,5 @@ public class Pump implements Serializable {
     private String adresse;
     @NotBlank(message = "recordId is mandatory")
     private String recordId;
+    private String carburant;
 }
