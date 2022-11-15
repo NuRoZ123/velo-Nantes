@@ -65,12 +65,14 @@ public class StationServiceImpl implements StationService {
             Arrays.stream(openDataVeloNantes.getRecords()).forEach(record -> {
                 Optional<Station> station = findByRecordId(record.getRecordId());
                 if(station.isPresent()) {
+                    if(!station.get().isEstModifier()) {
+                        station.get().setStatus(record.getField().getStatus());
+                    }
                     station.get().setAvailableBikeStands(record.getField().getAvailableBikeStands());
                     station.get().setAvailableBikes(record.getField().getAvailableBikes());
                     station.get().setBikeStands(record.getField().getBikeStands());
                     station.get().setLongitude(record.getField().getPosition()[1]);
                     station.get().setLattitude(record.getField().getPosition()[0]);
-
                     save(station.get());
                 } else {
                     Station newStation = Station.builder()
@@ -83,6 +85,7 @@ public class StationServiceImpl implements StationService {
                             .availableBikes(record.getField().getAvailableBikes())
                             .availableBikeStands(record.getField().getAvailableBikeStands())
                             .bikeStands(record.getField().getBikeStands())
+                            .estModifier(false)
                             .build();
 
                     save(newStation);

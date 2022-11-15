@@ -32,4 +32,5 @@ public class Station implements Serializable {
     @NotBlank(message = "recordId is mandatory")
     private String recordId;
     private String adresse;
+    private boolean estModifier;
 }
