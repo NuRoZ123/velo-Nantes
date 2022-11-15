@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.swing.text.html.Option;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
@@ -37,6 +38,19 @@ public class StationController {
 		Optional<Station> stations = stationService.findById(id);
 		
 		return ResponseEntity.ok(stations);
+	}
+
+	@PostMapping("stations/status/change/{id}")
+	public ResponseEntity<Optional<Station>> changeStationStatus(@PathVariable Integer id) {
+		Optional<Station> station = stationService.findById(id);
+
+		if(station.isPresent()) {
+			station.get().setStatus(station.get().getStatus().equals("OPEN") ? "CLOSED" : "OPEN");
+			station.get().setEstModifier(true);
+			stationService.save(station.get());
+		}
+
+		return ResponseEntity.ok(station);
 	}
 
 	@DeleteMapping("stations/delete/{id}")
